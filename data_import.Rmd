@@ -5,8 +5,8 @@ output: github_document
 
 ```{r setup}
 library(tidyverse)
-library(readxl)
-library(haven)
+library(readxl) #library used to read in excel files 
+library(haven) #library used to read in SAS and other files 
 ```
 
 ## Read in some data
