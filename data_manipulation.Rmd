@@ -6,9 +6,52 @@ output: github_document
 ```{r setup}
 library(tidyverse)
 ```
+
 # Load in the FAS litters data 
+
 ```{r}
 litters_df = read_csv("./data/FAS_litters.csv")
 litters_df = janitor::clean_names(litters_df)
+```
+
+# Let's take a look at select 
+Allows us to look at some columns and not others 
+
+```{r}
+select(litters_df,group,gd0_weight)
+```
+
+# You can also specify a range of columns
+
+```{r}
+select(litters_df,group,gd0_weight:gd_of_birth)
+```
+
+# You can get rid of a column, this gets rid of litter number
+```{r}
+select(litters_df,litter_number)
+```
+
+Renaming colums
+```{r}
+select(litters_df,GROUP = group, LITTER_NUMBER = litter_number)
+```
+
+You can simply rename without using the select function
+```{r}
+rename(litters_df,GROUP = group, LITTER_NUMBER = litter_number)
+```
+
+Select helpers
+```{r}
+select(litters_df,starts_with("gd"))
+```
+You can move things and then keep order for everything else
+```{r}
+select(litters_df, litter_number,everything())
+```
+relocate does something similar
+```{r}
+relocate(litters_df, group)
 ```
 
