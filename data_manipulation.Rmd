@@ -55,3 +55,30 @@ relocate does something similar
 relocate(litters_df, group)
 ```
 
+##filter: intended to keep rows in which you are interested in keeping for subsequent analysis; sekect operates on columns, filter operates on rows
+```{r}
+filter(litters_df,gd0_weight >= 22)
+```
+
+You can ask if gd_of_birth ==20, you use more than one equal sign because you are not trying to say that the variable is = the number 20. It is a test for equality
+```{r}
+filter(litters_df,gd_of_birth == 20)
+```
+
+Not equal to 20, you can use exclamation marks
+```{r}
+filter(litters_df,!gd_of_birth == 20)
+```
+
+```{r}
+filter(litters_df, gd0_weight >= 22,gd_of_birth == 20)
+```
+
+```{r}
+filter(litters_df,group == "Mod8")
+```
+
+```{r}
+filter(litters_df, group %in% c("Con7", "Mod8"))
+```
+
