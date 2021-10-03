@@ -52,5 +52,7 @@ pulse_data =
     values_to = "bdi"
   ) %>% 
     relocate(id,visit) %>% 
-  mutate(visit =recode(visit, "bl"= "00m"))
+  mutate(visit = recode(visit, "bl"= "00m"))
 ```
+
+Pivot\_wider
