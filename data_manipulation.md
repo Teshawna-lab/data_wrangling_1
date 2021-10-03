@@ -210,9 +210,7 @@ relocate(litters_df, group)
     ## # … with 39 more rows, and 2 more variables: pups_dead_birth <dbl>,
     ## #   pups_survive <dbl>
 
-\#\#filter: intended to keep rows in which you are interested in keeping
-for subsequent analysis; sekect operates on columns, filter operates on
-rows
+## Filter: intended to keep rows in which you are interested in keeping for subsequent analysis; sekect operates on columns, filter operates on rows
 
 ``` r
 filter(litters_df,gd0_weight >= 22)
@@ -350,7 +348,7 @@ filter(litters_df, group %in% c("Con7", "Mod8"))
     ## 14 Mod8  #82/4                 33.4        52.7          20               8
     ## # … with 2 more variables: pups_dead_birth <dbl>, pups_survive <dbl>
 
-\#\#mutate: allows you to modify or create additiional variables
+## Mutate: allows you to modify or create additiional variables
 
 ``` r
 mutate(
@@ -374,25 +372,3 @@ mutate(
     ## 10 con8  #3/5/2/2/95           28.5        NA            20               8
     ## # … with 39 more rows, and 3 more variables: pups_dead_birth <dbl>,
     ## #   pups_survive <dbl>, wt_gain <dbl>
-
-\#\#arrange
-
-``` r
-arrange(litters_df,pups_born_alive)
-```
-
-    ## # A tibble: 49 × 8
-    ##    group litter_number gd0_weight gd18_weight gd_of_birth pups_born_alive
-    ##    <chr> <chr>              <dbl>       <dbl>       <dbl>           <dbl>
-    ##  1 Con7  #85                 19.7        34.7          20               3
-    ##  2 Low7  #111                25.5        44.6          20               3
-    ##  3 Low8  #4/84               21.8        35.2          20               4
-    ##  4 Con7  #5/4/2/95/2         28.5        44.1          19               5
-    ##  5 Con8  #2/2/95/2           NA          NA            19               5
-    ##  6 Mod7  #3/82/3-2           28          45.9          20               5
-    ##  7 Mod7  #5/3/83/5-2         22.6        37            19               5
-    ##  8 Mod7  #106                21.7        37.8          20               5
-    ##  9 Con7  #5/5/3/83/3-3       26          41.4          19               6
-    ## 10 Con7  #4/2/95/3-3         NA          NA            20               6
-    ## # … with 39 more rows, and 2 more variables: pups_dead_birth <dbl>,
-    ## #   pups_survive <dbl>

@@ -55,7 +55,7 @@ relocate does something similar
 relocate(litters_df, group)
 ```
 
-##filter: intended to keep rows in which you are interested in keeping for subsequent analysis; sekect operates on columns, filter operates on rows
+## Filter: intended to keep rows in which you are interested in keeping for subsequent analysis; sekect operates on columns, filter operates on rows
 ```{r}
 filter(litters_df,gd0_weight >= 22)
 ```
@@ -82,7 +82,7 @@ filter(litters_df,group == "Mod8")
 filter(litters_df, group %in% c("Con7", "Mod8"))
 ```
 
-##mutate: allows you to modify or create additiional variables
+## Mutate: allows you to modify or create additiional variables
 ```{r}
 mutate(
   litters_df,
@@ -90,9 +90,27 @@ mutate(
   group = str_to_lower(group))
 ```
 
-
-##arrange 
+## Arrange 
 ```{r}
 arrange(litters_df,pups_born_alive)
+```
+
+## %>%
+```{r}
+litters_data_raw = read_csv("./data/FAS_litters.csv")
+litters_clean_name = janitor::clean_names(litters_data_raw)
+litters_data_selected = select(litters_clean_name, pups_survive)
+litters_mutated = mutate (litters_data_selected,wt_gain = gd18_weight-gd0_weight)
+litters_without_missing = drop_na(litters_mutated, gd0weight)
+```
+
+USE THE PIPES OPERATOR INSTEAD
+```{r}
+litters_df = 
+  read_csv("./data/FAS_litters.csv") %>%  
+  janitor::clean_names()
+  select(-pups_survive)
+  mutate(wt_gain = gd18_weight - gd0_weight)
+  drop_na(gd0_weight)
 ```
 
